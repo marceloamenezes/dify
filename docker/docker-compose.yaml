@@ -575,7 +575,7 @@ services:
        limits: # <-- E esta
         memory: 512M # <-- E esta
     environment:
-      # Use the shared environment variables.
+      APP_URL: https://dify.agenciamdois.com.br
       <<: *shared-api-worker-env
       # Startup mode, 'api' starts the API server.
       MODE: api
@@ -608,7 +608,7 @@ services:
        limits: # <-- E esta
         memory: 512M # <-- E esta
     environment:
-      # Use the shared environment variables.
+      APP_URL: https://dify.agenciamdois.com.br
       <<: *shared-api-worker-env
       # Startup mode, 'worker' starts the Celery worker for processing the queue.
       MODE: worker
@@ -655,6 +655,7 @@ services:
     ports:
       - "5001:3000"
     environment:
+      APP_URL: https://dify.agenciamdois.com.br
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
       SENTRY_DSN: ${WEB_SENTRY_DSN:-}
